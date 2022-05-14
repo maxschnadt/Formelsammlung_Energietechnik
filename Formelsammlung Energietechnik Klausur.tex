@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,draft, fleqn, twocolumn]{article}
+\documentclass[11pt, a4paper, final, fleqn, twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -6,9 +6,15 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{graphicx}
-\numberwithin{equation}{section}
+
+\usepackage[linktoc=page, colorlinks, hyperfootnotes, urlcolor=black]{hyperref}
+\renewcommand{\thefootnote}{\textcolor{blue}{\arabic{footnote}}}
+
+\numberwithin{equation}{subsection}
+
 \setlength{\columnseprule}{0.4pt}
 \setlength{\columnsep}{2em}
+
 \begin{document}
 \twocolumn[
     {\centering
@@ -17,14 +23,26 @@
         \today\par}
     \tableofcontents\par
     \vspace{10ex}]
+
+
+
 \section{Mathematik}
 
-Eulersche Identität
+\subsection{Komplexe Zahlen}
+
+Die schönste Gleichung der Mathematik
+\begin{equation}
+    e^{i\pi} = -1
+\end{equation}
+
+\noindent Eulersche Identität
 \begin{equation}
     r \cdot e^{j\varphi} = r \cdot [cos(\varphi) + j \cdot sin(\varphi)]
 \end{equation}
 
-\noindent Winkel zwischen x und y Achse
+\subsection{Trigonometrie}
+
+Winkel zwischen x und y Achse
 \begin{equation}
 \begin{split}
     tan(\varphi) & = \frac{y}{x} \Rightarrow \varphi = \arctan(\frac{y}{x})+\theta \\
@@ -60,7 +78,11 @@ Eulersche Identität
     a^b \cdot a^c = a^{b+c}
 \end{equation}
 
+
+
 \section{Elektrotechnik}
+
+\subsection{Elementargesetze}
 
 Ohmsches Gesetz (+ im Komplexen)
 \begin{equation}
@@ -83,6 +105,43 @@ Ohmsches Gesetz (+ im Komplexen)
     \eta = \frac{P_{in}}{P_{out}}
 \end{equation}
 
+\subsection{Gleichstromkreise}
+
+Reihenschaltung Widerstände
+\begin{equation}
+    R_{ges} = \sum_n R_n
+\end{equation}
+
+\noindent Parallelschaltung Widerstände
+\begin{equation}
+\begin{split}
+    \frac{1}{R_{ges}} = \sum_n \frac{1}{R_n} \\
+    \Rightarrow R_{ges} = \frac{1}{\sum_n \frac{1}{R_n}}
+\end{split}
+\end{equation}
+
+\noindent Spannungsteiler
+\begin{equation}
+    \frac{U_1}{U_{ges}} = \frac{R_1}{R_{ges}}
+\end{equation}
+
+\noindent Stromteiler
+\begin{equation}
+    \frac{I_1}{I_2} = \frac{R_2}{R_1}
+\end{equation}
+
+\subsection{Wechselstromkreise}
+
+Merksatz Spulen
+\begin{quote}
+    \textit{,,Bei Induktivitäten, die Ströme sich verspäten.''}
+\end{quote}
+
+\noindent Merksatz Kondensatoren
+\begin{quote}
+    \textit{,,Im Kondensator eilt der Strom vor.''}
+\end{quote}
+
 \noindent Widerstand Kondensator
 \begin{equation}
     X_C = \frac{1}{j 2\pi f C}
@@ -93,22 +152,39 @@ Ohmsches Gesetz (+ im Komplexen)
     X_L = j 2\pi f L
 \end{equation}
 
-\pagebreak
+
+
+\section{Energietechnik}
+
+Minimaler Kurzschlussstrom
+\begin{equation}
+    I_{K_{min}} = I_K \cdot c_{min}
+\end{equation}
+
+\noindent Maximaler Kurzschlussstrom
+\begin{equation}
+    I_{K_{max}} = I_K \cdot c_{max}
+\end{equation}
+
+
+
 \section{Physikalische Konstanten}
 
-Elementarladung
+Elementarladung\footnotemark[1]
 \begin{equation}
     e = 1,602 \hspace{1ex} 176 \hspace{1ex} 634 \cdot 10^{-19} \text{As}
 \end{equation}
 
-\noindent Permeabilität Vakuum (magn. Feldkonstante)
+\noindent Permeabilität Vakuum (magn. Feldkonstante)\footnotemark[1]
 \begin{equation}
     \mu_0 = 1,256 \hspace{1ex} 637 \hspace{1ex} 062 \cdot 10^{-6} \frac{\text{Vs}}{\text{Am}}
 \end{equation}
 
-\noindent Permittivität Vakuum (elektr. Feldkonstante)
+\noindent Permittivität Vakuum (elektr. Feldkonstante)\footnotemark[1]
 \begin{equation}
     \varepsilon_0 = 8,854 \hspace{1ex} 187 \hspace{1ex} 812 \cdot 10^{-12} \frac{\text{As}}{\text{Vm}}
 \end{equation}
+
+\footnotetext[1]{\url{https://physics.nist.gov/cuu/pdf/wall_2018.pdf}}
     
 \end{document}
