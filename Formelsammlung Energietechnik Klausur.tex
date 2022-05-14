@@ -1,0 +1,114 @@
+\documentclass[11pt,a4paper,draft, fleqn, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\numberwithin{equation}{section}
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{2em}
+\begin{document}
+\twocolumn[
+    {\centering
+        {\huge Formelsammlung Energietechnik\par}\vspace{3ex}
+        {\Large Maximilian Schnadt\par}\vspace{2ex}
+        \today\par}
+    \tableofcontents\par
+    \vspace{10ex}]
+\section{Mathematik}
+
+Eulersche Identität
+\begin{equation}
+    r \cdot e^{j\varphi} = r \cdot [cos(\varphi) + j \cdot sin(\varphi)]
+\end{equation}
+
+\noindent Winkel zwischen x und y Achse
+\begin{equation}
+\begin{split}
+    tan(\varphi) & = \frac{y}{x} \Rightarrow \varphi = \arctan(\frac{y}{x})+\theta \\
+    \theta & = 
+    \begin{cases}
+        0 & x > 0, \hspace{1ex} y > 0 \\
+        \pi & x < 0, \hspace{1ex} y \neq  0 \\
+        2\pi & x > 0, \hspace{1ex} y < 0
+    \end{cases}
+\end{split}
+\end{equation}
+
+\noindent Zeigerlänge aus Realteil und Imaginärteil
+\begin{equation}
+    r = \sqrt{x^2 + y^2}
+\end{equation}
+
+\noindent Realteil und Imaginärteil aus Zeigerlänge
+\begin{equation}
+\begin{split}
+    x = r \cdot cos(\varphi) \\
+    y = r \cdot sin(\varphi)
+\end{split}
+\end{equation}
+
+\noindent Winkelgeschwindigkeit, Frequenz und Periodendauer
+\begin{equation}
+    \omega = 2\pi f = \frac{2\pi}{T}
+\end{equation}
+
+\noindent Multiplikation von Potenzen
+\begin{equation}
+    a^b \cdot a^c = a^{b+c}
+\end{equation}
+
+\section{Elektrotechnik}
+
+Ohmsches Gesetz (+ im Komplexen)
+\begin{equation}
+    R = \frac{U}{I} \hspace{3ex}
+    \underline{Z} = \frac{\underline{U}}{\underline{I}}
+\end{equation}
+
+\noindent Elektrische Leistung
+\begin{equation}
+    P = U \cdot I = \frac{U^2}{R} = I^2 \cdot R
+\end{equation}
+
+\noindent Elektrische Energie
+\begin{equation}
+    W = P \cdot t
+\end{equation}
+
+\noindent Wirkungsgrad
+\begin{equation}
+    \eta = \frac{P_{in}}{P_{out}}
+\end{equation}
+
+\noindent Widerstand Kondensator
+\begin{equation}
+    X_C = \frac{1}{j 2\pi f C}
+\end{equation}
+
+\noindent Widerstand Spule
+\begin{equation}
+    X_L = j 2\pi f L
+\end{equation}
+
+\pagebreak
+\section{Physikalische Konstanten}
+
+Elementarladung
+\begin{equation}
+    e = 1,602 \hspace{1ex} 176 \hspace{1ex} 634 \cdot 10^{-19} \text{As}
+\end{equation}
+
+\noindent Permeabilität Vakuum (magn. Feldkonstante)
+\begin{equation}
+    \mu_0 = 1,256 \hspace{1ex} 637 \hspace{1ex} 062 \cdot 10^{-6} \frac{\text{Vs}}{\text{Am}}
+\end{equation}
+
+\noindent Permittivität Vakuum (elektr. Feldkonstante)
+\begin{equation}
+    \varepsilon_0 = 8,854 \hspace{1ex} 187 \hspace{1ex} 812 \cdot 10^{-12} \frac{\text{As}}{\text{Vm}}
+\end{equation}
+    
+\end{document}
