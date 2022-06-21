@@ -164,7 +164,7 @@ Merksatz Spulen
 
 \subsection{Leiterspannungen}
 
-Leiterspannung
+Leiterspannung im Dreiphasen-Netz
 \begin{equation}
     U_L = U \cdot \sqrt{3}
 \end{equation}
@@ -181,7 +181,7 @@ Minimaler Kurzschlussstrom
     I_{K_{max}} = I_K \cdot c_{max}
 \end{equation}
 
-\noindent Anfangskurzschlusswechselstrom
+\noindent Anfangs-Kurzschlusswechselstrom
 \begin{equation}
     I''_k = \dfrac{c \cdot U_n}{\sqrt{3}\cdot \lvert \underline{Z}_k \rvert}
 \end{equation}
@@ -201,14 +201,36 @@ Minimaler Kurzschlussstrom
     i_p = \sqrt{2} \kappa I''_k
 \end{equation}
 
-\noindent Verhältnis Resistanz und Reaktanz
-\begin{equation}
-    
-\end{equation}
-
-\noindent Netzinnenimpedanz
+\noindent Netzinnenimpedanz (Quellenimpedanz)
 \begin{equation}
     Z_{Q} = c \cdot \frac{U_{nQ}^2}{S_{KQ}''}
+\end{equation}
+
+\noindent Verhältnis Resistanz und Reaktanz
+\begin{equation}
+\begin{split}
+\frac{R_Q}{X_Q} & =
+\begin{cases}
+0 & U_N > 35 kV \\
+0.1 & \text{sonstige Fälle}
+\end{cases} \\
+& \text{\small zu Fall 2: } X_Q = 0.995 \hspace{0.1em} Z_Q
+\end{split}
+\end{equation}
+
+\noindent Trafoimpedanz
+\begin{equation}
+    Z_T = \frac{u_{k}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+\end{equation}
+
+\noindent Trafowiderstand
+\begin{equation}
+    R_T = \frac{u_{R}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+\end{equation}
+
+\noindent Traforeaktanz
+\begin{equation}
+    X_T = \sqrt{Z_T^2 - R_T^2}
 \end{equation}
 
 
@@ -266,6 +288,14 @@ Elementarladung\footnotemark[1]
     $I_b$ = Ausschaltwechselstrom \\
     $S_k''$ = Anfangs-Kurzschlusswechselstrom- \\
     \indent \hspace{1.3em} leistung \\
+    $R_Q$ = Wirkwiderstand Quelle \\
+    $X_Q$ = Blindwiderstand Quelle \\
+    $Z_Q$ = Impedanz Quelle \\
+    $R_T$ = Wirkwiderstand Trafo \\
+    $X_T$ = Blindwiderstand Trafo \\
+    $Z_T$ = Impedanz Trafo \\
+    $u_k$ = Relative Kurzschlussspannung \\
+    $u_R$ = Relativer ohmscher Spannungsabfall \\
     
 
 \end{document}
