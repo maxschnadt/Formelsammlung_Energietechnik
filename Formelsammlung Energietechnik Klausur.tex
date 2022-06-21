@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, final, fleqn, twocolumn]{article}
+\documentclass[11pt, a4paper, draft, fleqn, twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -19,7 +19,7 @@
 \twocolumn[
     {\centering
         {\huge Formelsammlung Energietechnik\par}\vspace{3ex}
-        {\Large Maximilian Schnadt\par}\vspace{2ex}
+        {\Large Alexandros Raptis, Maximilian Schnadt\par}\vspace{2ex}
         \today\par}
     \tableofcontents\par
     \vspace{10ex}]
@@ -105,6 +105,12 @@ Ohmsches Gesetz (+ im Komplexen)
     \eta = \frac{P_{in}}{P_{out}}
 \end{equation}
 
+\noindent Temperaturabhängigkeit des Widerstands
+\begin{equation}
+    R_\vartheta = R_{20}\cdot(1 + \alpha_{20} \cdot \Delta \vartheta)
+\end{equation}
+
+
 \subsection{Gleichstromkreise}
 
 Reihenschaltung Widerstände
@@ -156,6 +162,15 @@ Merksatz Spulen
 
 \section{Energietechnik}
 
+\subsection{Leiterspannungen}
+
+Leiterspannung
+\begin{equation}
+    U_L = U \cdot \sqrt{3}
+\end{equation}
+
+\subsection{Kurzschlussberechnungen}
+
 Minimaler Kurzschlussstrom
 \begin{equation}
     I_{K_{min}} = I_K \cdot c_{min}
@@ -164,6 +179,36 @@ Minimaler Kurzschlussstrom
 \noindent Maximaler Kurzschlussstrom
 \begin{equation}
     I_{K_{max}} = I_K \cdot c_{max}
+\end{equation}
+
+\noindent Anfangskurzschlusswechselstrom
+\begin{equation}
+    I''_k = \dfrac{c \cdot U_n}{\sqrt{3}\cdot \lvert \underline{Z}_k \rvert}
+\end{equation}
+
+\noindent Kurzschlussimpedanz
+\begin{equation}
+    \lvert \underline{Z}_k \rvert = R_k + j X_k
+\end{equation}
+
+\noindent Stoßziffer
+\begin{equation}
+    \kappa = 1,02 + 0,98 \cdot e^{-3 \frac{R_{tot}}{X_{tot}}}
+\end{equation}
+
+\noindent Stoßkurzschlussstrom
+\begin{equation}
+    i_p = \sqrt{2} \kappa I''_k
+\end{equation}
+
+\noindent Verhältnis Resistanz und Reaktanz
+\begin{equation}
+    
+\end{equation}
+
+\noindent Netzinnenimpedanz
+\begin{equation}
+    Z_{Q} = c \cdot \frac{U_{nQ}^2}{S_{KQ}''}
 \end{equation}
 
 
@@ -186,5 +231,41 @@ Elementarladung\footnotemark[1]
 \end{equation}
 
 \footnotetext[1]{\url{https://physics.nist.gov/cuu/pdf/wall_2018.pdf}}
+
+
+
+\section{Symbole und Formelzeichen}
+\noindent In eckigen Klammern ist, wo angemessen, das zugehörige Einheitenzeichen angegeben. \\
+
+    \noindent
+    $l$ = Länge [$m$] \\
+    $A$ = Fläche [$m^2$] \\
+    $t$ = Zeit [$s$] \\
+    $U$ = Spannung [$V$] \\
+    $I$ = Strom [$A$] \\
+    $R$ = Widerstand [$\Omega$] \\
+    $P$ = Leistung [$W$] \\
+    $W$ = Energie [$J$] \\
+    $\eta$ = Wirkungsgrad \\
+    $\vartheta$ = Temperatur [$K$]\\
+    $X$ = Reaktanz \\
+    $Z$ = Komplexer Widerstand \\
+    $S$ = Komplexe Leistung \\
+    $I_k$ = Kurzschlussstrom \\
+    $I''_k$ = Anfangs-Kurzschlusswechselstrom \\
+    $c$ = Spannungsfaktor \\
+    $U_n$ = Nennspannung \\
+    $\underline{Z}_k$ = Kurzschlussimpedanz \\
+    $L$ = Induktivität [$H$] \\
+    $C$ = Kapazität [$F$] \\
+    $Q$ = elektr. Ladung [$As$] \\
+    $\kappa$ = Stoßziffer \\
+    $R_{tot}$ = Totaler Wirkwiderstand \\
+    $X_{tot}$ = Totaler Blindwiderstand \\
+    $i_p$ = Stoßkurzschlussstrom \\
+    $I_b$ = Ausschaltwechselstrom \\
+    $S_k''$ = Anfangs-Kurzschlusswechselstrom- \\
+    \indent \hspace{1.3em} leistung \\
     
+
 \end{document}
