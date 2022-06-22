@@ -40,6 +40,7 @@ Die schönste Gleichung der Mathematik
     r \cdot e^{j\varphi} = r \cdot [cos(\varphi) + j \cdot sin(\varphi)]
 \end{equation}
 
+
 \subsection{Trigonometrie}
 
 Winkel zwischen x und y Achse
@@ -136,6 +137,7 @@ Reihenschaltung Widerstände
     \frac{I_1}{I_2} = \frac{R_2}{R_1}
 \end{equation}
 
+
 \subsection{Wechselstromkreise}
 
 Merksatz Spulen
@@ -162,140 +164,285 @@ Merksatz Spulen
 
 \section{Energietechnik}
 
-\subsection{Leiterspannungen}
 
-Leiterspannung im Dreiphasen-Netz
-\begin{equation}
-    U_L = U \cdot \sqrt{3}
-\end{equation}
-
-\subsection{Kurzschlussberechnungen}
+\subsection{Grundlagen}
 
 Minimaler Kurzschlussstrom
 \begin{equation}
-    I_{K_{min}} = I_K \cdot c_{min}
+    I_{kmin} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot R_{min}}
 \end{equation}
 
 \noindent Maximaler Kurzschlussstrom
 \begin{equation}
-    I_{K_{max}} = I_K \cdot c_{max}
+    I_{kmax} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot R_{max}}
 \end{equation}
 
-\noindent Anfangs-Kurzschlusswechselstrom
+\noindent Leiterspannung
 \begin{equation}
-    I''_k = \dfrac{c \cdot U_n}{\sqrt{3}\cdot \lvert \underline{Z}_k \rvert}
+    U_L = U \cdot \sqrt{3}
 \end{equation}
 
-\noindent Kurzschlussimpedanz
+
+\subsection{Leitungserwärmung}
+
+Stromdichte
 \begin{equation}
-    \lvert \underline{Z}_k \rvert = R_k + j X_k
+    S = \frac{I_k}{A_L}
 \end{equation}
 
-\noindent Stoßziffer
+\noindent Faktor adiabatische Erwärmung (s.u.)
 \begin{equation}
-    \kappa = 1,02 + 0,98 \cdot e^{-3 \frac{R_{tot}}{X_{tot}}}
+    \Psi = \frac{\alpha_{20} \cdot S^2 \cdot t_k}{\gamma_{20} \cdot c}
 \end{equation}
 
-\noindent Stoßkurzschlussstrom
-\begin{equation}
-    i_p = \sqrt{2} \kappa I''_k
-\end{equation}
-
-\noindent Netzinnenimpedanz (Quellenimpedanz)
-\begin{equation}
-    Z_{Q} = c \cdot \frac{U_{nQ}^2}{S_{KQ}''}
-\end{equation}
-
-\noindent Verhältnis Resistanz und Reaktanz
+\noindent Adiabatische Erwärmung
 \begin{equation}
 \begin{split}
-\frac{R_Q}{X_Q} & =
-\begin{cases}
-0 & U_N > 35 kV \\
-0.1 & \text{sonstige Fälle}
-\end{cases} \\
-& \text{\small zu Fall 2: } X_Q = 0.995 \hspace{0.1em} Z_Q
+\vartheta_{Ea} = & \frac{1}{\alpha_{20}} \left[ \left( \left[ 1 + \alpha_{20}(\vartheta_{A} - \vartheta_{20}) \right] e^{\Psi} \right) -1 \right] \\
+& + \vartheta_{20}
 \end{split}
 \end{equation}
 
-\noindent Trafoimpedanz
+\noindent Gesamterwärmung
 \begin{equation}
-    Z_T = \frac{u_{k}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+    \vartheta_{E} = \vartheta_{Ea} \cdot \eta_{th}
 \end{equation}
 
-\noindent Trafowiderstand
+
+\subsection{Kurzschlussstromberechnung}
+
+Kurzschlussimpedanz
 \begin{equation}
-    R_T = \frac{u_{R}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+    Z_k = X_k = X_q = U \cdot \frac{U}{S} = \frac{U^2 }{S}
 \end{equation}
 
-\noindent Traforeaktanz
+\noindent Maximaler Kurzschlussstrom
+\begin{equation}
+    I_{kmax} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot Z_k}
+\end{equation}
+
+\noindent Minimaler Kurzschlussstrom
+\begin{equation}
+    I_{kmin} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot Z_k}
+\end{equation}
+
+
+\subsection{Impedanzen Quelle und Trafo}
+
+Impedanz Quelle
+\begin{equation}
+    Z_Q = \frac{c_{max} \cdot U_Q^2}{S_{KQ}} \cdot \frac{1}{\text{Ü}_T^2}
+\end{equation}
+
+\noindent Reaktanz Quelle
+\begin{equation}
+    X_Q = 0,995 \cdot Z_Q
+\end{equation}
+
+\noindent Resistanz Quelle
+\begin{equation}
+    R_Q = 0,1 \cdot X_Q
+\end{equation}
+
+\noindent Impedanz Quelle
+\begin{equation}
+    Z_Q = R_Q + jX_Q
+\end{equation}
+
+\noindent Impedanz Trafo
+\begin{equation}
+    Z_T = \frac{u_{KT}}{100\%} \cdot \frac{U_T^2}{S_T}
+\end{equation}
+
+\noindent Resistanz Trafo
+\begin{equation}
+    R_T = \frac{u_{RT}}{100\%} \cdot \frac{U_T^2}{S_T}
+\end{equation}
+
+\noindent Reaktanz Trafo
 \begin{equation}
     X_T = \sqrt{Z_T^2 - R_T^2}
 \end{equation}
 
-
-
-\section{Physikalische Konstanten}
-
-Elementarladung\footnotemark[1]
+\noindent Impedanz Trafo
 \begin{equation}
-    e = 1,602 \hspace{1ex} 176 \hspace{1ex} 634 \cdot 10^{-19} \text{As}
+    Z_T = R_T + jX_T
 \end{equation}
 
-\noindent Permeabilität Vakuum (magn. Feldkonstante)\footnotemark[1]
+\noindent Impedanz Quelle + Trafo
 \begin{equation}
-    \mu_0 = 1,256 \hspace{1ex} 637 \hspace{1ex} 062 \cdot 10^{-6} \frac{\text{Vs}}{\text{Am}}
+    Z_{QT} = (R_Q + R_T) + j(X_Q + X_T)
 \end{equation}
 
-\noindent Permittivität Vakuum (elektr. Feldkonstante)\footnotemark[1]
+\noindent Maximaler Kurzschlussstrom Quelle
 \begin{equation}
-    \varepsilon_0 = 8,854 \hspace{1ex} 187 \hspace{1ex} 812 \cdot 10^{-12} \frac{\text{As}}{\text{Vm}}
+    I_{KQ} = \frac{c_{max} \cdot U_Q}{\sqrt{3} \cdot Z_{QT}}
 \end{equation}
 
-\footnotetext[1]{\url{https://physics.nist.gov/cuu/pdf/wall_2018.pdf}}
+\noindent Gesamter Kurzschlussstrom
+\begin{equation}
+    I_{K_{gesamt}} = (I_{KQ} + I_{KG} + I_{KM})
+\end{equation}
 
 
+\subsection{Impedanz Netz}
 
-\section{Symbole und Formelzeichen}
-\noindent In eckigen Klammern ist, wo angemessen, das zugehörige Einheitenzeichen angegeben. \\
+Impedanz Quelle Oberseite
+\begin{equation}
+    Z_{Q_{OS}} = \frac{c_{max} \cdot U_N}{\sqrt{3} \cdot I_{kQ}} = \frac{c_{max} \cdot U_{NQ}^2}{S_K''}
+\end{equation}
 
-    \noindent
-    $l$ = Länge [$m$] \\
-    $A$ = Fläche [$m^2$] \\
-    $t$ = Zeit [$s$] \\
-    $U$ = Spannung [$V$] \\
-    $I$ = Strom [$A$] \\
-    $R$ = Widerstand [$\Omega$] \\
-    $P$ = Leistung [$W$] \\
-    $W$ = Energie [$J$] \\
-    $\eta$ = Wirkungsgrad \\
-    $\vartheta$ = Temperatur [$K$]\\
-    $X$ = Reaktanz \\
-    $Z$ = Komplexer Widerstand \\
-    $S$ = Komplexe Leistung \\
-    $I_k$ = Kurzschlussstrom \\
-    $I''_k$ = Anfangs-Kurzschlusswechselstrom \\
-    $c$ = Spannungsfaktor \\
-    $U_n$ = Nennspannung \\
-    $\underline{Z}_k$ = Kurzschlussimpedanz \\
-    $L$ = Induktivität [$H$] \\
-    $C$ = Kapazität [$F$] \\
-    $Q$ = elektr. Ladung [$As$] \\
-    $\kappa$ = Stoßziffer \\
-    $R_{tot}$ = Totaler Wirkwiderstand \\
-    $X_{tot}$ = Totaler Blindwiderstand \\
-    $i_p$ = Stoßkurzschlussstrom \\
-    $I_b$ = Ausschaltwechselstrom \\
-    $S_k''$ = Anfangs-Kurzschlusswechselstrom- \\
-    \indent \hspace{1.3em} leistung \\
-    $R_Q$ = Wirkwiderstand Quelle \\
-    $X_Q$ = Blindwiderstand Quelle \\
-    $Z_Q$ = Impedanz Quelle \\
-    $R_T$ = Wirkwiderstand Trafo \\
-    $X_T$ = Blindwiderstand Trafo \\
-    $Z_T$ = Impedanz Trafo \\
-    $u_k$ = Relative Kurzschlussspannung \\
-    $u_R$ = Relativer ohmscher Spannungsabfall \\
-    
+\noindent Impedanz Quelle Unterseite
+\begin{equation}
+    Z_{Q_{US}} = Z_{Q_{OS}} \cdot \frac{1}{\text{ü}^2}
+\end{equation}
+
+\noindent Winkel Netz
+\begin{equation}
+    \varphi_Q = arctan(\frac{X_Q}{R_Q})
+\end{equation}
+
+\noindent Reaktanz Quelle Unterseite
+\begin{equation}
+    X_{Q_{US}} = Z_{Q_{US}} \cdot sin(\varphi_Q)
+\end{equation}
+
+\noindent Resistanz Quelle Unterseite
+\begin{equation}
+    R_{Q_{US}} = Z_{Q_{US}} \cdot cos(\varphi_Q)
+\end{equation}
+
+\noindent Spannungsabfall Widerstand
+\begin{equation}
+    u_r = \frac{P_{cu} \cdot 100\%}{S_{rr}}
+\end{equation}
+
+\noindent Spannungsabfall
+\begin{equation}
+    u_x = \sqrt{u_k^2 - u_r^2}
+\end{equation}
+
+\noindent Reaktanz Trafo
+\begin{equation}
+    X_T = \frac{u_x}{100\%} \cdot \frac{U_{rr}^2}{S_{rr}}
+\end{equation}
+
+\noindent Resistanz Trafo
+\begin{equation}
+    R_T = \frac{u_r}{100\%} \cdot \frac{U_{rr}^2}{S_{rr}}
+\end{equation}
+
+\noindent 
+\begin{equation}
+    x_T = \frac{X_T \cdot S_{rr}}{U_{rr}^2}
+\end{equation}
+
+\noindent
+\begin{equation}
+    K_r = 0,95 \cdot \frac{c_{max}}{1 + 0,6 \cdot x_T}
+\end{equation}
+
+\noindent Impedanz Trafo
+\begin{equation}
+    Z_T = \sqrt{R_T^2 + X_T^2}
+\end{equation}
+
+\noindent Gesamtwiderstand
+\begin{equation}
+    R_{ges} = R_{Q_{US}} + R_{K_{2}} + R_T
+\end{equation}
+
+\noindent Gesamtreaktanz
+\begin{equation}
+    X_{ges} = X_{Q_{US}} + X_{K_{2}} + X_T
+\end{equation}
+
+\noindent Gesamtimpedanz
+\begin{equation}
+    Z_{ges} = \sqrt{R_{ges}^2 + X_{ges}^2}
+\end{equation}
+
+
+\subsection{Impedanz Kabel}
+
+Widerstand Kabel
+\begin{equation}
+    R_{K_{2}} = R' \cdot l
+\end{equation}
+
+\noindent Reaktanz Kabel
+\begin{equation}
+    X_{K_{2}} = X' \cdot l
+\end{equation}
+
+\noindent Maximaler Kurzschlussstrom
+\begin{equation}
+    I_{kmax} = \frac{c_{max} \cdot U_{RT}}{\sqrt{3} \cdot Z_{ges}}
+\end{equation}
+
+
+\subsection{Kompensation}
+
+Korrigierte Leistung
+\begin{equation}
+    S = \frac{P}{cos(\varphi)}
+\end{equation}
+
+\noindent Zugeführte Leistung
+\begin{equation}
+    P_{zu} = \frac{P_{ab}}{\eta}
+\end{equation}
+
+\noindent Reaktanz
+\begin{equation}
+    Q = P \cdot cos(\varphi)
+\end{equation}
+
+\noindent Winkel
+\begin{equation}
+    tan(\varphi) = \frac{\Sigma Q}{\Sigma P}
+\end{equation}
+
+\noindent Reaktanz
+\begin{equation}
+    Q_1 = S_1 \cdot sin(\varphi)
+\end{equation}
+
+\noindent Reaktanz
+\begin{equation}
+    Q_C = Q_1 - Q_2
+\end{equation}
+
+\noindent Reaktanz
+\begin{equation}
+    Q = P \cdot (tan(\varphi_1) - tan(\varphi_2))
+\end{equation}
+
+\noindent Strom
+\begin{equation}
+    I_c = \frac{Q}{U_c}
+\end{equation}
+
+\noindent Strom
+\begin{equation}
+    I_c = \frac{U}{X_c} = U \cdot \omega \cdot C
+\end{equation}
+
+\noindent Kapazität
+\begin{equation}
+    C = \frac{I_c}{U \cdot \omega}
+\end{equation}
+
+\noindent Kapazität
+\begin{equation}
+    C = \frac{Q_c}{2 \cdot \pi \cdot f \cdot U^2}
+\end{equation}
+
+\noindent Strom
+\begin{equation}
+    I = \frac{P_{ges}}{U \cdot cos(\varphi)}
+\end{equation}
+
+
 
 \end{document}

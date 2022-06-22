@@ -1,0 +1,348 @@
+\documentclass[11pt, a4paper, final, fleqn, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+
+\usepackage[linktoc=page, colorlinks, hyperfootnotes, urlcolor=black]{hyperref}
+\renewcommand{\thefootnote}{\textcolor{blue}{\arabic{footnote}}}
+
+\numberwithin{equation}{subsection}
+
+\setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{2em}
+
+\begin{document}
+\twocolumn[
+    {\centering
+        {\huge Formelsammlung Energietechnik\par}\vspace{3ex}
+        {\Large Alexandros Raptis, Maximilian Schnadt\par}\vspace{2ex}
+        \today\par}
+    \tableofcontents\par
+    \vspace{10ex}]
+
+
+
+\section{Mathematik}
+
+\subsection{Komplexe Zahlen}
+
+Die schönste Gleichung der Mathematik
+\begin{equation}
+    e^{i\pi} = -1
+\end{equation}
+
+\noindent Eulersche Identität
+\begin{equation}
+    r \cdot e^{j\varphi} = r \cdot [cos(\varphi) + j \cdot sin(\varphi)]
+\end{equation}
+
+
+\subsection{Trigonometrie}
+
+Winkel zwischen x und y Achse
+\begin{equation}
+\begin{split}
+    tan(\varphi) & = \frac{y}{x} \Rightarrow \varphi = \arctan(\frac{y}{x})+\theta \\
+    \theta & = 
+    \begin{cases}
+        0 & x > 0, \hspace{1ex} y > 0 \\
+        \pi & x < 0, \hspace{1ex} y \neq  0 \\
+        2\pi & x > 0, \hspace{1ex} y < 0
+    \end{cases}
+\end{split}
+\end{equation}
+
+\noindent Zeigerlänge aus Realteil und Imaginärteil
+\begin{equation}
+    r = \sqrt{x^2 + y^2}
+\end{equation}
+
+\noindent Realteil und Imaginärteil aus Zeigerlänge
+\begin{equation}
+\begin{split}
+    x = r \cdot cos(\varphi) \\
+    y = r \cdot sin(\varphi)
+\end{split}
+\end{equation}
+
+\noindent Winkelgeschwindigkeit, Frequenz und Periodendauer
+\begin{equation}
+    \omega = 2\pi f = \frac{2\pi}{T}
+\end{equation}
+
+\noindent Multiplikation von Potenzen
+\begin{equation}
+    a^b \cdot a^c = a^{b+c}
+\end{equation}
+
+
+
+\section{Elektrotechnik}
+
+\subsection{Elementargesetze}
+
+Ohmsches Gesetz (+ im Komplexen)
+\begin{equation}
+    R = \frac{U}{I} \hspace{3ex}
+    \underline{Z} = \frac{\underline{U}}{\underline{I}}
+\end{equation}
+
+\noindent Elektrische Leistung
+\begin{equation}
+    P = U \cdot I = \frac{U^2}{R} = I^2 \cdot R
+\end{equation}
+
+\noindent Elektrische Energie
+\begin{equation}
+    W = P \cdot t
+\end{equation}
+
+\noindent Wirkungsgrad
+\begin{equation}
+    \eta = \frac{P_{in}}{P_{out}}
+\end{equation}
+
+\noindent Temperaturabhängigkeit des Widerstands
+\begin{equation}
+    R_\vartheta = R_{20}\cdot(1 + \alpha_{20} \cdot \Delta \vartheta)
+\end{equation}
+
+
+\subsection{Gleichstromkreise}
+
+Reihenschaltung Widerstände
+\begin{equation}
+    R_{ges} = \sum_n R_n
+\end{equation}
+
+\noindent Parallelschaltung Widerstände
+\begin{equation}
+\begin{split}
+    \frac{1}{R_{ges}} = \sum_n \frac{1}{R_n} \\
+    \Rightarrow R_{ges} = \frac{1}{\sum_n \frac{1}{R_n}}
+\end{split}
+\end{equation}
+
+\noindent Spannungsteiler
+\begin{equation}
+    \frac{U_1}{U_{ges}} = \frac{R_1}{R_{ges}}
+\end{equation}
+
+\noindent Stromteiler
+\begin{equation}
+    \frac{I_1}{I_2} = \frac{R_2}{R_1}
+\end{equation}
+
+
+\subsection{Wechselstromkreise}
+
+Merksatz Spulen
+\begin{quote}
+    \textit{,,Bei Induktivitäten, die Ströme sich verspäten.''}
+\end{quote}
+
+\noindent Merksatz Kondensatoren
+\begin{quote}
+    \textit{,,Im Kondensator eilt der Strom vor.''}
+\end{quote}
+
+\noindent Widerstand Kondensator
+\begin{equation}
+    X_C = \frac{1}{j 2\pi f C}
+\end{equation}
+
+\noindent Widerstand Spule
+\begin{equation}
+    X_L = j 2\pi f L
+\end{equation}
+
+\noindent Übersetzungsverhältnis Trafo
+\begin{equation}
+    \text{ü} = \frac{N_{OS}}{N_{US}}
+\end{equation}
+
+
+
+\section{Energietechnik}
+
+\subsection{Leiterspannungen}
+
+Leiterspannung im Dreiphasen-Netz
+\begin{equation}
+    U_L = U \cdot \sqrt{3}
+\end{equation}
+
+
+\subsection{Kurzschlussberechnungen}
+
+Minimaler Kurzschlussstrom
+\begin{equation}
+    I_{K_{min}} = I_K \cdot c_{min}
+\end{equation}
+
+\noindent Maximaler Kurzschlussstrom
+\begin{equation}
+    I_{K_{max}} = I_K \cdot c_{max}
+\end{equation}
+
+\noindent Anfangs-Kurzschlusswechselstrom
+\begin{equation}
+    I''_k = \dfrac{c \cdot U_n}{\sqrt{3}\cdot \lvert \underline{Z}_k \rvert}
+\end{equation}
+
+\noindent Kurzschlussimpedanz
+\begin{equation}
+    \lvert \underline{Z}_k \rvert = R_k + j X_k
+\end{equation}
+
+\noindent Stoßziffer
+\begin{equation}
+    \kappa = 1,02 + 0,98 \cdot e^{-3 \frac{R_{tot}}{X_{tot}}}
+\end{equation}
+
+\noindent Stoßkurzschlussstrom
+\begin{equation}
+    i_p = \sqrt{2} \kappa I''_k
+\end{equation}
+
+\noindent Netzinnenimpedanz (Quellenimpedanz)
+\begin{equation}
+    Z_{Q} = c \cdot \frac{U_{nQ}^2}{S_{KQ}''}
+\end{equation}
+
+\noindent Verhältnis Resistanz und Reaktanz
+\begin{equation}
+\begin{split}
+\frac{R_Q}{X_Q} & =
+\begin{cases}
+0 & U_N > 35 kV \\
+0,1 & \text{sonstige Fälle}
+\end{cases} \\
+& \text{\small zu Fall 2: } X_Q = 0,995 \hspace{0.1em} Z_Q
+\end{split}
+\end{equation}
+
+\noindent Trafoimpedanz
+\begin{equation}
+    Z_T = \frac{u_{k}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+\end{equation}
+
+\noindent Trafowiderstand
+\begin{equation}
+    R_T = \frac{u_{R}}{100\%} \cdot \frac{U_{T}^2}{S_{T}}
+\end{equation}
+
+\noindent Traforeaktanz
+\begin{equation}
+    X_T = \sqrt{Z_T^2 - R_T^2}
+\end{equation}
+
+\noindent Kabelwiderstand
+\begin{equation}
+    R_L = R_L' \cdot l
+\end{equation}
+
+\noindent Kabelreaktanz
+\begin{equation}
+    X_L = X_L' \cdot l
+\end{equation}
+
+\noindent Kabelimpedanz
+\begin{equation}
+    \underline{Z}_L = R_L + jX_L
+\end{equation}
+
+
+\subsection{Leitungserwärmung}
+
+Stromdichte
+\begin{equation}
+    S = \frac{I_k}{A_L}
+\end{equation}
+
+\noindent Adiabatische Erwärmung
+\begin{equation}
+\begin{split}
+    \vartheta_{Ea} = & \frac{1}{\alpha_{20}}  \left[ \left( \left[ 1+\alpha_{20} (\vartheta_A - \vartheta_{20}) \right] e^{\frac{\alpha_{20} \cdot S^2 \cdot t_k}{\gamma_{20} \cdot c}} \right) -1 \right] \\
+    & \qquad + \vartheta_{20}
+\end{split}
+\end{equation}
+
+\noindent Enderwärmung
+\begin{equation}
+    \vartheta_E = \vartheta_{Ea} \cdot \eta_{ta}
+\end{equation}
+
+
+
+\section{Physikalische Konstanten}
+
+Elementarladung\footnotemark[1]
+\begin{equation}
+    e = 1,602 \hspace{1ex} 176 \hspace{1ex} 634 \cdot 10^{-19} \text{As}
+\end{equation}
+
+\noindent Permeabilität Vakuum (magn. Feldkonstante)\footnotemark[1]
+\begin{equation}
+    \mu_0 = 1,256 \hspace{1ex} 637 \hspace{1ex} 062 \cdot 10^{-6} \frac{\text{Vs}}{\text{Am}}
+\end{equation}
+
+\noindent Permittivität Vakuum (elektr. Feldkonstante)\footnotemark[1]
+\begin{equation}
+    \varepsilon_0 = 8,854 \hspace{1ex} 187 \hspace{1ex} 812 \cdot 10^{-12} \frac{\text{As}}{\text{Vm}}
+\end{equation}
+
+\footnotetext[1]{\url{https://physics.nist.gov/cuu/pdf/wall_2018.pdf}}
+
+
+
+\section{Symbole und Formelzeichen}
+\noindent In eckigen Klammern ist, wo angemessen, das zugehörige Einheitenzeichen angegeben. \\
+
+    \noindent
+    $l$ = Länge [$m$] \\
+    $A$ = Fläche [$m^2$] \\
+    $t$ = Zeit [$s$] \\
+    $U$ = Spannung [$V$] \\
+    $I$ = Strom [$A$] \\
+    $R$ = Widerstand [$\Omega$] \\
+    $P$ = Leistung [$W$] \\
+    $W$ = Energie [$J$] \\
+    $\eta$ = Wirkungsgrad \\
+    $\vartheta$ = Temperatur [$K$]\\
+    $X$ = Reaktanz \\
+    $Z$ = Komplexer Widerstand \\
+    $S$ = Komplexe Leistung \\
+    $I_k$ = Kurzschlussstrom \\
+    $I''_k$ = Anfangs-Kurzschlusswechselstrom \\
+    $c$ = Spannungsfaktor \\
+    $U_n$ = Nennspannung \\
+    $\underline{Z}_k$ = Kurzschlussimpedanz \\
+    $L$ = Induktivität [$H$] \\
+    $C$ = Kapazität [$F$] \\
+    $Q$ = elektr. Ladung [$As$] \\
+    $\kappa$ = Stoßziffer \\
+    $R_{tot}$ = Totaler Wirkwiderstand \\
+    $X_{tot}$ = Totaler Blindwiderstand \\
+    $i_p$ = Stoßkurzschlussstrom \\
+    $I_b$ = Ausschaltwechselstrom \\
+    $S_k''$ = Anfangs-Kurzschlusswechselstrom- \\
+    \indent \hspace{1.3em} leistung \\
+    $R_Q$ = Wirkwiderstand Quelle \\
+    $X_Q$ = Blindwiderstand Quelle \\
+    $Z_Q$ = Impedanz Quelle \\
+    $R_T$ = Wirkwiderstand Trafo \\
+    $X_T$ = Blindwiderstand Trafo \\
+    $Z_T$ = Impedanz Trafo \\
+    $u_k$ = Relative Kurzschlussspannung \\
+    $u_R$ = Relativer ohmscher Spannungsabfall \\
+    $c$ = Spezifische Wärmekapazität \\
+    $N_{OS}$ = Windungen Oberspannungsseite \\
+    $N_{US}$ = Windungen Unterspannungsseite
+    
+
+\end{document}
