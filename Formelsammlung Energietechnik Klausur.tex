@@ -37,7 +37,17 @@ Die schönste Gleichung der Mathematik
 
 \noindent Eulersche Identität
 \begin{equation}
-    r \cdot e^{j\varphi} = r \cdot [cos(\varphi) + j \cdot sin(\varphi)]
+    r \cdot e^{j\varphi} = r \cdot [\cos(\varphi) + j \cdot \sin(\varphi)]
+\end{equation}
+
+\noindent Multiplikation komplexer Zahlen
+\begin{equation}
+    (r_1 \cdot e^{j\varphi}) \cdot (r_2 \cdot e^{j\theta}) = (r_1 \cdot r_2) \cdot e^{j(\varphi + \theta)}
+\end{equation}
+
+\noindent Division komplexer Zahlen
+\begin{equation}
+    \frac{r_1 \cdot e^{j\varphi}}{r_2 \cdot e^{j\theta}} = \frac{r_1}{r_2} \cdot e^{j(\varphi - \theta)}
 \end{equation}
 
 
@@ -64,8 +74,8 @@ Winkel zwischen x und y Achse
 \noindent Realteil und Imaginärteil aus Zeigerlänge
 \begin{equation}
 \begin{split}
-    x = r \cdot cos(\varphi) \\
-    y = r \cdot sin(\varphi)
+    x = r \cdot \cos(\varphi) \\
+    y = r \cdot \sin(\varphi)
 \end{split}
 \end{equation}
 
@@ -299,17 +309,17 @@ Impedanz Quelle Oberseite
 
 \noindent Winkel Netz
 \begin{equation}
-    \varphi_Q = arctan(\frac{X_Q}{R_Q})
+    \varphi_Q = \arctan(\frac{X_Q}{R_Q})
 \end{equation}
 
 \noindent Reaktanz Quelle Unterseite
 \begin{equation}
-    X_{Q_{US}} = Z_{Q_{US}} \cdot sin(\varphi_Q)
+    X_{Q_{US}} = Z_{Q_{US}} \cdot \sin(\varphi_Q)
 \end{equation}
 
 \noindent Resistanz Quelle Unterseite
 \begin{equation}
-    R_{Q_{US}} = Z_{Q_{US}} \cdot cos(\varphi_Q)
+    R_{Q_{US}} = Z_{Q_{US}} \cdot \cos(\varphi_Q)
 \end{equation}
 
 \noindent Spannungsabfall Widerstand
@@ -385,7 +395,7 @@ Widerstand Kabel
 
 Korrigierte Leistung
 \begin{equation}
-    S = \frac{P}{cos(\varphi)}
+    S = \frac{P}{\cos(\varphi)}
 \end{equation}
 
 \noindent Zugeführte Leistung
@@ -395,17 +405,17 @@ Korrigierte Leistung
 
 \noindent Reaktanz
 \begin{equation}
-    Q = P \cdot cos(\varphi)
+    Q = P \cdot \cos(\varphi)
 \end{equation}
 
 \noindent Winkel
 \begin{equation}
-    tan(\varphi) = \frac{\Sigma Q}{\Sigma P}
+    \tan(\varphi) = \frac{\Sigma Q}{\Sigma P}
 \end{equation}
 
 \noindent Reaktanz
 \begin{equation}
-    Q_1 = S_1 \cdot sin(\varphi)
+    Q_1 = S_1 \cdot \sin(\varphi)
 \end{equation}
 
 \noindent Reaktanz
@@ -415,7 +425,7 @@ Korrigierte Leistung
 
 \noindent Reaktanz
 \begin{equation}
-    Q = P \cdot (tan(\varphi_1) - tan(\varphi_2))
+    Q = P \cdot (\tan(\varphi_1) - \tan(\varphi_2))
 \end{equation}
 
 \noindent Strom
@@ -440,9 +450,250 @@ Korrigierte Leistung
 
 \noindent Strom
 \begin{equation}
-    I = \frac{P_{ges}}{U \cdot cos(\varphi)}
+    I = \frac{P_{ges}}{U \cdot \cos(\varphi)}
 \end{equation}
 
 
+\subsection{Transformator}
+
+Übersetzungsfaktor
+\begin{equation}
+    \text{ü} = \frac{U_{10}}{U_{20}}
+\end{equation}
+
+\noindent Leistung
+\begin{equation}
+    S = U_{10} \cdot I_{10}
+\end{equation}
+
+\noindent Winkel
+\begin{equation}
+    cos(\varphi) = \frac{P_{0}}{S_{0}}
+\end{equation}
+
+
+\subsection{Verlustströme}
+
+Eisenverluststrom
+\begin{equation}
+    I_{fe} = I_{10} \cdot \cos(\varphi)
+\end{equation}
+
+\noindent Magnetisierungsverluststrom
+\begin{equation}
+    I_{mag} = I_{10} \cdot \sin(\varphi)
+\end{equation}
+
+\noindent Relativer Leerlaufstrom
+\begin{equation}
+    I_0 = \frac{I_{10} (\text{bei} \quad U_{1N})}{I_{1N}}
+\end{equation}
+
+\noindent Eisenverlustwiderstand
+\begin{equation}
+    R_{fe} = \frac{U_{10}}{I_{fe}}
+\end{equation}
+
+\noindent Hauptinduktivität
+\begin{equation}
+    L_h = \frac{X_h}{2 \cdot \pi \cdot f} = \frac{U_{10}}{2 \cdot \pi \cdot I_{mag1}}
+\end{equation}
+
+
+\subsection{Kurzschlussleistung}
+
+Leistung
+\begin{equation}
+    S = U_{1K} \cdot I_{1K}
+\end{equation}
+
+\noindent Winkel
+\begin{equation}
+    \cos(\varphi) = \frac{P_k}{S_k}
+\end{equation}
+
+\noindent Impedanz
+\begin{equation}
+    Z_k = \frac{U_{1k}}{I_{1k}}
+\end{equation}
+
+
+\subsection{Dauerkurzschlussstrom}
+
+Gesamtwiderstand
+\begin{equation}
+    (R_1 + R_2') = Z_k \cdot \cos(\varphi_k)
+\end{equation}
+
+\noindent Näherungsweiser Widerstand
+\begin{equation}
+\begin{split}
+    & \text{für} \quad R_1 \approx R_2' \quad \text{gilt:} \\
+    & R_1 \approx \frac{1}{2}(R_1 + R_2') \quad \text{und} \\
+    & R_2' \approx \frac{1}{\text{ü}^2}\cdot R_1
+\end{split}
+\end{equation}
+
+
+\subsection{Streuinduktivitäten}
+
+Gesamtreaktanz
+\begin{equation}
+    (X_{S1} + X_{S2}') = Z_k \cdot \sin(\varphi_k)
+\end{equation}
+
+\noindent Näherungsweise Reaktanz
+\begin{equation}
+\begin{split}
+    & \text{für} \quad X_{S1} \approx X_{S2}' \quad \text{gilt:} \\
+    & X_{S1} \approx \frac{1}{2}(X_{S1} + X_{S2}')
+\end{split}
+\end{equation}
+
+\noindent Induktivität
+\begin{equation}
+    L_{S1} = \frac{X_{S1}}{2 \cdot \pi \cdot f}
+\end{equation}
+
+\noindent Induktivität
+\begin{equation}
+    L_{S2} \approx \frac{1}{\text{ü}^2} \cdot L_{S2}'
+\end{equation}
+
+
+\subsection{Wirkungsgrad}
+
+Abgegebene Leistung
+\begin{equation}
+    P_{ab} = \frac{1}{2} \cdot S_N \cdot \cos(\varphi_N)
+\end{equation}
+
+\noindent Strom
+\begin{equation}
+    I_1 = \frac{1}{2} \cdot I_{1N}
+\end{equation}
+
+\noindent Kupferverlustleistung
+\begin{equation}
+    P_{cu} = \frac{1}{I_{1N}^2} \cdot P_{KN}
+\end{equation}
+
+\noindent Eisenverlustleistung
+\begin{equation}
+    P_{fe} = P_{ON}
+\end{equation}
+
+\noindent Wirkungsgrad
+\begin{equation}
+    \eta = \frac{P_{ab}}{P_{ab} + P_{cu} + P_{fe}}
+\end{equation}
+
+\noindent Relativer Spannungsabfall
+\begin{equation}
+    u_k = \frac{U_{1k}}{U_{1N}} \cdot 100\%
+\end{equation}
+
+\noindent Spannung
+\begin{equation}
+    U_{1k} = \frac{U_k \cdot U_{1N}}{100\%}
+\end{equation}
+
+\noindent Strom
+\begin{equation}
+    I_{1N} = \frac{S_N}{U_{1N}}
+\end{equation}
+
+\noindent Eisenverlustleistung
+\begin{equation}
+    P_{vfe} = \frac{U_{2N}^2}{U_{20}^2} \cdot P_{20}
+\end{equation}
+
+\noindent Kupferverlustleistung
+\begin{equation}
+    P_{vcu} = \frac{9}{16} \cdot U_{1k} \cdot \cos(\varphi_k)
+\end{equation}
+
+\noindent Wirkungsgrad
+\begin{equation}
+    \eta = \frac{0,75 \cdot P_{vfe} \cdot \cos(\varphi)}{0,75 \cdot P_{kfe} \cdot \cos(\varphi) + P_{vfe} + P_{vcu}}
+\end{equation}
+
+\noindent Gesamtleistung
+\begin{equation}
+    S_{ges} = S_1 + S_2 + S_3
+\end{equation}
+
+\noindent Relativer Gesamtspannungsabfall
+\begin{equation}
+    u_{k_{ges}} = \frac{S_{ges}}{\sum_{G=1}^{3} \frac{S_{N_{G}}}{u_{k_{G}}}}
+\end{equation}
+
+\noindent Leistung 1
+\begin{equation}
+    S_1 = \frac{U_{k_{ges}}}{U_{k_{1}}} \cdot S_{N1}
+\end{equation}
+
+\noindent Leistung 2
+\begin{equation}
+    S_2 = \frac{U_{k_{ges}}}{U_{k_{2}}} \cdot S_{N2}
+\end{equation}
+
+\noindent Leistung 3
+\begin{equation}
+    S_3 = \frac{U_{k_{ges}}}{U_{k_{3}}} \cdot S_{N3}
+\end{equation}
+
+\noindent Kontrollrechnung
+\begin{equation}
+    S_{ges} = S_1 + S_2 + S_3
+\end{equation}
+
+
+\subsection{Symmetrische Komponenten}
+
+Phasenverschiebungsfaktor 1
+\begin{equation}
+    \underline{a} = e^{j120\text{°}}
+\end{equation}
+
+\noindent Phasenverschiebungsfaktor 2
+\begin{equation}
+    \underline{a}^2 = e^{-j120\text{°}}
+\end{equation}
+
+\noindent Gesamtphasenverschiebung
+\begin{equation}
+    1 + \underline{a} + \underline{a}^2 = 0
+\end{equation}
+
+\noindent Spannung Mitkomponente
+\begin{equation}
+    \underline{U}_M = \frac{1}{3}(\underline{U}_R + \underline{a} \cdot \underline{U}_s + \underline{a}^2 \cdot \underline{U}_T)
+\end{equation}
+
+\noindent Spannung Gegenkomponente
+\begin{equation}
+    \underline{U}_G = \frac{1}{3}(\underline{U}_R + \underline{a}^2 \cdot \underline{U}_s + \underline{a} \cdot \underline{U}_T)
+\end{equation}
+
+\noindent Spannung Nullkomponente
+\begin{equation}
+    \underline{U}_N = \frac{1}{3}(\underline{U}_R + \underline{U}_s + \underline{U}_T)
+\end{equation}
+
+\noindent Strom Mitkomponente
+\begin{equation}
+    \underline{I}_M = \frac{1}{3}(\underline{I}_R + \underline{a} \cdot \underline{I}_s + \underline{a}^2 \cdot \underline{I}_T)
+\end{equation}
+
+\noindent Strom Gegenkomponente
+\begin{equation}
+    \underline{I}_G = \frac{1}{3}(\underline{I}_R + \underline{a}^2 \cdot \underline{I}_s + \underline{a} \cdot \underline{I}_T)
+\end{equation}
+
+\noindent Strom Nullkomponente
+\begin{equation}
+    \underline{I}_N = \frac{1}{3}(\underline{I}_R + \underline{I}_s + \underline{I}_T)
+\end{equation}
 
 \end{document}
