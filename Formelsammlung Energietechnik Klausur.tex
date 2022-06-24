@@ -197,12 +197,12 @@ Minimaler Kurzschlussstrom
 
 Stromdichte
 \begin{equation}
-    S = \frac{I_k}{A_L}
+    J = \frac{I_k}{A_L}
 \end{equation}
 
 \noindent Faktor adiabatische Erwärmung (s.u.)
 \begin{equation}
-    \Psi = \frac{\alpha_{20} \cdot S^2 \cdot t_k}{\gamma_{20} \cdot c}
+    \Psi = \frac{\alpha_{20} \cdot J^2 \cdot t_k}{\gamma_{20} \cdot c}
 \end{equation}
 
 \noindent Adiabatische Erwärmung
@@ -391,9 +391,36 @@ Widerstand Kabel
 \end{equation}
 
 
+\subsection{Staffelplan}
+
+Vorgehen:
+\begin{enumerate}
+    \item Ermitteln der Leitungsabschnitte pro Zone
+    \item Berechnen der Widerstände für jede Zone, also summieren über alle Produkte aus Leitungslänge und spezifischem Widerstand \\ \(X_{Da-Db} = \sum_{n=a}^{b} (l_n \cdot MK_n) \)
+    \item Berechnen der Widerstände für jede Zone, also Multiplikation von Toleranz mit Widerstand (anschließenden Leitungsabschnitt beachten!) \\
+    \begin{equation}
+    \begin{split}
+        X_{1_{Da}} & = p \cdot X_{Da} \\
+        X_{2_{Da}} & = p \cdot X_{Da} + p^2 \cdot X_{Db}
+    \end{split}
+    \end{equation}
+    \item Zeichnung erstellen
+    \begin{itemize}
+        \item x-Achse = Widerstand, y-Achse = Zeit
+        \item Für jeden Widerstand horizontale Linie zeichnen, Höhe = Zeitraum, Länge = Widerstand
+        \item Senkrechte Linie zeichnen zur Verbindung der Widerstände in einer Zone
+    \end{itemize}
+\end{enumerate}
+
+
 \subsection{Kompensation}
 
-Korrigierte Leistung
+Scheinleistung
+\begin{equation}
+    S_{ges} = \sqrt{P_{ges}^2 +Q_{ges}^2}
+\end{equation}
+
+\noindent Korrigierte Leistung
 \begin{equation}
     S = \frac{P}{\cos(\varphi)}
 \end{equation}
@@ -405,7 +432,7 @@ Korrigierte Leistung
 
 \noindent Reaktanz
 \begin{equation}
-    Q = P \cdot \cos(\varphi)
+    Q = P \cdot \tan(\varphi)
 \end{equation}
 
 \noindent Winkel
@@ -468,7 +495,22 @@ Korrigierte Leistung
 
 \noindent Winkel
 \begin{equation}
-    cos(\varphi) = \frac{P_{0}}{S_{0}}
+    \cos(\varphi) = \frac{P_{0}}{S_{0}}
+\end{equation}
+
+\noindent Gesamter relativer Spannungsabfall
+\begin{equation}
+    u_{k_{ges}} = \frac{\sum_n S_{T_{n}}}{\sum_n \frac{S_{T_{n}}}{u_{k_{n}}}}
+\end{equation}
+
+\noindent Teilleistung Trafo
+\begin{equation}
+    S_i' = S_{N_{i}} \cdot \frac{u_{k_{ges}}}{U_{k_{i}}} \cdot \frac{\sum S'}{\sum S_N'}
+\end{equation}
+
+\noindent Maximale Scheinleistung
+\begin{equation}
+    S_{max} = u_k \cdot \left(\sum_j \frac{S_j}{U_{k_{j}}} \right)
 \end{equation}
 
 
@@ -615,7 +657,7 @@ Abgegebene Leistung
 
 \noindent Wirkungsgrad
 \begin{equation}
-    \eta = \frac{0,75 \cdot P_{vfe} \cdot \cos(\varphi)}{0,75 \cdot P_{kfe} \cdot \cos(\varphi) + P_{vfe} + P_{vcu}}
+    \eta = \frac{\text{Nennlast} \cdot P_{vfe} \cdot \cos(\varphi)}{\text{Nennlast} \cdot P_{kfe} \cdot \cos(\varphi) + P_{vfe} + P_{vcu}}
 \end{equation}
 
 \noindent Gesamtleistung
@@ -695,5 +737,46 @@ Phasenverschiebungsfaktor 1
 \begin{equation}
     \underline{I}_N = \frac{1}{3}(\underline{I}_R + \underline{I}_s + \underline{I}_T)
 \end{equation}
+
+
+
+\section{Formelzeichen und Symbole}
+
+Lateinische Buchstaben
+\begin{itemize}
+    \item \(A_L\) = Leitungsfläche
+    \item \(c_{max}\) = Maximaler Spannungsfaktor
+    \item \(c_{min}\) = Minimaler Spannungsfaktor
+    \item \(c\) = Spezifische Wärmekapazität
+    \item \(D_a\) = Zone \(a\)
+    \item \(I_0\) = Relativer Leerlaufstrom
+    \item \(I_{fe}\) = Eisenverluststrom
+    \item \(I_{k_{max}}\) = Maximaler Kurzschlussstrom
+    \item \(I_{k_{min}}\) = Minimaler Kurzschlussstrom
+    \item \(I_{mag}\) = Magnetisierungsverluststrom
+    \item \(J\) = Stromdichte
+    \item \(K_r\) =
+    \item \(L_h\) = Hauptinduktivität
+    \item \(P\) = Leistung
+    \item \(R_{K/Q/T}\) = Widerstand Kabel / Quelle / Trafo
+    \item \(S\) = Scheinleistung
+    \item \(u_{KT/x}\) = Relativer Spannungsabfall
+    \item \(u_{r/RT}\) = Relativer ohmscher Spannungsabfall
+    \item \(x_T\)
+    \item \(X_{K/Q/T}\) = Reaktanz Kabel / Quelle/ Trafo
+    \item \(Z_{K/Q/T}\) = Impedanz Kabel / Quelle / Trafo
+\end{itemize}
+
+\noindent Griechische Buchstaben
+\begin{itemize}
+    \item \(\alpha_{20}\) = Temperaturkoeffizient 20 °C
+    \item \(\gamma_{20}\) = Spezifische Leitfähigkeit 20 °C
+    \item \(\eta\) = Wirkungsgrad
+    \item \(\vartheta\) = Temperatur
+    \item \(\vartheta_{20}\) = 20 °C
+    \item \(\vartheta_{E}\) = Gesamterwärmung
+    \item \(\vartheta_{Ea}\) = Adiabatische Erwärmung
+    \item \(\Psi\) = Faktor adiabatische Erwärmung
+\end{itemize}
 
 \end{document}
