@@ -1,4 +1,4 @@
-\documentclass[11pt, a4paper, draft, fleqn, twocolumn]{article}
+\documentclass[11pt, a4paper, final, fleqn, twocolumn]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{babel}
@@ -160,12 +160,12 @@ Merksatz Spulen
     \textit{,,Im Kondensator eilt der Strom vor.''}
 \end{quote}
 
-\noindent Widerstand Kondensator
+\noindent Reaktanz Kondensator
 \begin{equation}
     X_C = \frac{1}{j 2\pi f C}
 \end{equation}
 
-\noindent Widerstand Spule
+\noindent Reaktanz Spule
 \begin{equation}
     X_L = j 2\pi f L
 \end{equation}
@@ -174,17 +174,16 @@ Merksatz Spulen
 
 \section{Energietechnik}
 
-
 \subsection{Grundlagen}
 
 Minimaler Kurzschlussstrom
 \begin{equation}
-    I_{kmin} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot R_{min}}
+    I_{k_{min}} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot R_{min}}
 \end{equation}
 
 \noindent Maximaler Kurzschlussstrom
 \begin{equation}
-    I_{kmax} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot R_{max}}
+    I_{k_{max}} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot R_{max}}
 \end{equation}
 
 \noindent Leiterspannung
@@ -228,12 +227,12 @@ Kurzschlussimpedanz
 
 \noindent Maximaler Kurzschlussstrom
 \begin{equation}
-    I_{kmax} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot Z_k}
+    I_{k_{max}} = \frac{c_{max} \cdot U}{\sqrt{3} \cdot |\underline{Z}_k|}
 \end{equation}
 
 \noindent Minimaler Kurzschlussstrom
 \begin{equation}
-    I_{kmin} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot Z_k}
+    I_{k_{min}} = \frac{c_{min} \cdot U}{\sqrt{3} \cdot |\underline{Z}_k|}
 \end{equation}
 
 
@@ -241,7 +240,7 @@ Kurzschlussimpedanz
 
 Impedanz Quelle
 \begin{equation}
-    Z_Q = \frac{c_{max} \cdot U_Q^2}{S_{KQ}} \cdot \frac{1}{\text{Ü}_T^2}
+    Z_Q = \frac{c_{max} \cdot U_Q^2}{S_{KQ}} \cdot \frac{1}{\text{ü}_T^2}
 \end{equation}
 
 \noindent Reaktanz Quelle
@@ -286,7 +285,7 @@ Impedanz Quelle
 
 \noindent Maximaler Kurzschlussstrom Quelle
 \begin{equation}
-    I_{KQ} = \frac{c_{max} \cdot U_Q}{\sqrt{3} \cdot Z_{QT}}
+    I_{KQ} = \frac{c_{max} \cdot U_Q}{\sqrt{3} \cdot |\underline{Z}_{QT}|}
 \end{equation}
 
 \noindent Gesamter Kurzschlussstrom
@@ -307,29 +306,29 @@ Impedanz Quelle Oberseite
     Z_{Q_{US}} = Z_{Q_{OS}} \cdot \frac{1}{\text{ü}^2}
 \end{equation}
 
-\noindent Winkel Netz
+\noindent Winkel Quelle
 \begin{equation}
     \varphi_Q = \arctan(\frac{X_Q}{R_Q})
 \end{equation}
 
 \noindent Reaktanz Quelle Unterseite
 \begin{equation}
-    X_{Q_{US}} = Z_{Q_{US}} \cdot \sin(\varphi_Q)
+    X_{Q_{US}} = |\underline{Z}_{Q_{US}}| \cdot \sin(\varphi_Q)
 \end{equation}
 
-\noindent Resistanz Quelle Unterseite
+\noindent Widerstand Quelle Unterseite
 \begin{equation}
-    R_{Q_{US}} = Z_{Q_{US}} \cdot \cos(\varphi_Q)
+    R_{Q_{US}} = |\underline{Z}_{Q_{US}}| \cdot \cos(\varphi_Q)
 \end{equation}
 
-\noindent Spannungsabfall Widerstand
+\noindent Relativer ohmscher Spannungsabfall
 \begin{equation}
     u_r = \frac{P_{cu} \cdot 100\%}{S_{rr}}
 \end{equation}
 
-\noindent Spannungsabfall
+\noindent Relativer reaktiver Spannungsabfall
 \begin{equation}
-    u_x = \sqrt{u_k^2 - u_r^2}
+    u_x = \sqrt{u_z^2 - u_r^2}
 \end{equation}
 
 \noindent Reaktanz Trafo
@@ -337,19 +336,19 @@ Impedanz Quelle Oberseite
     X_T = \frac{u_x}{100\%} \cdot \frac{U_{rr}^2}{S_{rr}}
 \end{equation}
 
-\noindent Resistanz Trafo
+\noindent Widerstand Trafo
 \begin{equation}
     R_T = \frac{u_r}{100\%} \cdot \frac{U_{rr}^2}{S_{rr}}
 \end{equation}
 
-\noindent 
+\noindent Faktor Trafokompensation (s.u.)
 \begin{equation}
-    x_T = \frac{X_T \cdot S_{rr}}{U_{rr}^2}
+    \lambda = \frac{X_T \cdot S_{rr}}{U_{rr}^2}
 \end{equation}
 
-\noindent
+\noindent Trafokompensation
 \begin{equation}
-    K_r = 0,95 \cdot \frac{c_{max}}{1 + 0,6 \cdot x_T}
+    K_r = 0,95 \cdot \frac{c_{max}}{1 + 0,6 \cdot \lambda}
 \end{equation}
 
 \noindent Impedanz Trafo
@@ -377,17 +376,17 @@ Impedanz Quelle Oberseite
 
 Widerstand Kabel
 \begin{equation}
-    R_{K_{2}} = R' \cdot l
+    R_{K} = R' \cdot l
 \end{equation}
 
 \noindent Reaktanz Kabel
 \begin{equation}
-    X_{K_{2}} = X' \cdot l
+    X_{K} = X' \cdot l
 \end{equation}
 
 \noindent Maximaler Kurzschlussstrom
 \begin{equation}
-    I_{kmax} = \frac{c_{max} \cdot U_{RT}}{\sqrt{3} \cdot Z_{ges}}
+    I_{k_{max}} = \frac{c_{max} \cdot U_{RT}}{\sqrt{3} \cdot |\underline{Z}_{ges}|}
 \end{equation}
 
 
@@ -409,6 +408,7 @@ Vorgehen:
         \item x-Achse = Widerstand, y-Achse = Zeit
         \item Für jeden Widerstand horizontale Linie zeichnen, Höhe = Zeitraum, Länge = Widerstand
         \item Senkrechte Linie zeichnen zur Verbindung der Widerstände in einer Zone
+        \item Wenn sich eine horizontale und vertikale Linie berühren: Anmerkung, dass Relais nicht selektiv ist
     \end{itemize}
 \end{enumerate}
 
@@ -430,7 +430,7 @@ Scheinleistung
     P_{zu} = \frac{P_{ab}}{\eta}
 \end{equation}
 
-\noindent Reaktanz
+\noindent Blindleistung aus Wirkleistung
 \begin{equation}
     Q = P \cdot \tan(\varphi)
 \end{equation}
@@ -440,17 +440,17 @@ Scheinleistung
     \tan(\varphi) = \frac{\Sigma Q}{\Sigma P}
 \end{equation}
 
-\noindent Reaktanz
+\noindent Blindleistung aus Scheinleistung
 \begin{equation}
     Q_1 = S_1 \cdot \sin(\varphi)
 \end{equation}
 
-\noindent Reaktanz
+\noindent Blindleistung
 \begin{equation}
     Q_C = Q_1 - Q_2
 \end{equation}
 
-\noindent Reaktanz
+\noindent Korrigierte Blindleistung
 \begin{equation}
     Q = P \cdot (\tan(\varphi_1) - \tan(\varphi_2))
 \end{equation}
@@ -564,7 +564,7 @@ Leistung
 
 Gesamtwiderstand
 \begin{equation}
-    (R_1 + R_2') = Z_k \cdot \cos(\varphi_k)
+    (R_1 + R_2') = |\underline{Z}_k| \cdot \cos(\varphi_k)
 \end{equation}
 
 \noindent Näherungsweiser Widerstand
@@ -581,7 +581,7 @@ Gesamtwiderstand
 
 Gesamtreaktanz
 \begin{equation}
-    (X_{S1} + X_{S2}') = Z_k \cdot \sin(\varphi_k)
+    (X_{S1} + X_{S2}') = |\underline{Z}_k| \cdot \sin(\varphi_k)
 \end{equation}
 
 \noindent Näherungsweise Reaktanz
@@ -738,6 +738,11 @@ Phasenverschiebungsfaktor 1
     \underline{I}_N = \frac{1}{3}(\underline{I}_R + \underline{I}_s + \underline{I}_T)
 \end{equation}
 
+\noindent Strom im Neutralleiter
+\begin{equation}
+    \underline{I}_0 = \frac{\underline{I}_N}{3}
+\end{equation}
+
 
 
 \section{Formelzeichen und Symbole}
@@ -755,14 +760,18 @@ Lateinische Buchstaben
     \item \(I_{k_{min}}\) = Minimaler Kurzschlussstrom
     \item \(I_{mag}\) = Magnetisierungsverluststrom
     \item \(J\) = Stromdichte
-    \item \(K_r\) =
+    \item \(K_r\) = Trafokompensation
     \item \(L_h\) = Hauptinduktivität
     \item \(P\) = Leistung
+    \item \(P_{vcu}\) = Kupferverlustleistung
+    \item \(P_{vfe}\) = Eisenverlustleistung
+    \item \(R_{fe}\) = Eisenverlustwiderstand
     \item \(R_{K/Q/T}\) = Widerstand Kabel / Quelle / Trafo
     \item \(S\) = Scheinleistung
+    \item \(t_k\) = Dauer des Kurzschlusses
     \item \(u_{KT/x}\) = Relativer Spannungsabfall
     \item \(u_{r/RT}\) = Relativer ohmscher Spannungsabfall
-    \item \(x_T\)
+    \item ü = Übersetzungsfaktor
     \item \(X_{K/Q/T}\) = Reaktanz Kabel / Quelle/ Trafo
     \item \(Z_{K/Q/T}\) = Impedanz Kabel / Quelle / Trafo
 \end{itemize}
@@ -776,6 +785,7 @@ Lateinische Buchstaben
     \item \(\vartheta_{20}\) = 20 °C
     \item \(\vartheta_{E}\) = Gesamterwärmung
     \item \(\vartheta_{Ea}\) = Adiabatische Erwärmung
+    \item \(\lambda\) = Faktor Trafokompensation
     \item \(\Psi\) = Faktor adiabatische Erwärmung
 \end{itemize}
 
